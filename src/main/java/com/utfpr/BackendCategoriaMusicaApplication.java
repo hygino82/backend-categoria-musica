@@ -26,7 +26,7 @@ public class BackendCategoriaMusicaApplication {
 
 			log.info("");
 			log.info("");
-			log.info("=======Listagem de todas as músicas");
+			log.info("=======Listagem de todas as musicas");
 			for (Musica m : musicaService.listarTodasMusicas()) {
 				log.info(m.toString());
 			}

@@ -1,5 +1,7 @@
 package com.utfpr.config;
 
+import java.util.Properties;
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -43,6 +45,13 @@ public class SpringDataConfig {
         factory.setDataSource(dataSource());
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPackagesToScan("com.utfpr.entity");
+        
+        // Adicionando as propriedades do Hibernate
+        Properties jpaProperties = new Properties();
+        jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        jpaProperties.setProperty("hibernate.hbm2ddl.import_files", "import.sql");
+        factory.setJpaProperties(jpaProperties);
+
         factory.afterPropertiesSet();
 
         return factory.getObject();
