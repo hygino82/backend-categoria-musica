@@ -6,17 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name = "categoria")
-@NoArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode(of = "id")
+@Data
 public class Categoria {
 
     @Id
@@ -26,5 +20,4 @@ public class Categoria {
 
     @Column(name = "desc_categoria", length = 50)
     private String descCategoria;
-
 }

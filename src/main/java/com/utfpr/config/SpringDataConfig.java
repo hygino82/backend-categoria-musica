@@ -26,8 +26,8 @@ public class SpringDataConfig {
         HikariDataSource ds = new HikariDataSource();
         ds.setUsername("root");
         ds.setPassword("senha");
-        ds.setJdbcUrl("jbdc:h2:mem:teste");
-        ds.setDriverClassName("org.h2.Diver");
+        ds.setJdbcUrl("jdbc:h2:mem:teste");
+        ds.setDriverClassName("org.h2.Driver");
 
         return ds;
     }
@@ -38,7 +38,7 @@ public class SpringDataConfig {
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(true);
-        vendorAdapter.setShowSql(true);
+        vendorAdapter.setShowSql(false);
 
         factory.setDataSource(dataSource());
         factory.setJpaVendorAdapter(vendorAdapter);
