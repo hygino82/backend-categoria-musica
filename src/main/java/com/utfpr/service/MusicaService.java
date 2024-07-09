@@ -26,7 +26,7 @@ public class MusicaService {
                 .toList();
     }
 
-   /* public void adicionarTempo(Integer valor){
+    public void adicionarTempo(Integer valor) {
         musicaRepository.procAdicionaTempo(valor);
-    }*/
+    }
 }

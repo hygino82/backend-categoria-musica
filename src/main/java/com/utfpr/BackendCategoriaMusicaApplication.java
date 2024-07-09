@@ -36,7 +36,7 @@ public class BackendCategoriaMusicaApplication {
 			}*/
 
 
-			/*log.info("");
+			log.info("");
 			log.info("");
 			log.info("=======Chamar Stored Procedure");
 			musicaService.adicionarTempo(1000);
@@ -45,9 +45,9 @@ public class BackendCategoriaMusicaApplication {
 			log.info("");
 			log.info("");
 			log.info("=======Listagem de todas as musicas após executar Procedure");
-			for (Musica m : musicaService.listarTodasMusicas()) {
+			for (MusicaDTO m : musicaService.listarTodasMusicas()) {
 				log.info(m.toString());
-			}*/
+			}
 		};
 	}
 }
