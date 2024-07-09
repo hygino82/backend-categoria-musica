@@ -1,7 +1,5 @@
 package com.utfpr.config;
 
-import java.util.Properties;
-
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -24,7 +22,7 @@ import jakarta.persistence.EntityManagerFactory;
 public class SpringDataConfig {
 
     @Bean
-    public DataSource dataSource() {
+    public DataSource datasourceH2() {
         HikariDataSource ds = new HikariDataSource();
         ds.setUsername("root");
         ds.setPassword("senha");
@@ -35,22 +33,27 @@ public class SpringDataConfig {
     }
 
     @Bean
+    public DataSource dataSourceMariaDB() {
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
+        dataSource.setJdbcUrl("jdbc:mariadb://localhost:3306/utfpr_bd_apostila");
+        dataSource.setUsername("root");
+        dataSource.setPassword("89631139");
+
+        return dataSource;
+    }
+
+    @Bean
     public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(true);
+        vendorAdapter.setGenerateDdl(false);//mudado para false no maria
         vendorAdapter.setShowSql(false);
 
-        factory.setDataSource(dataSource());
+        factory.setDataSource(dataSourceMariaDB());
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPackagesToScan("com.utfpr.entity");
-        
-        // Adicionando as propriedades do Hibernate
-        Properties jpaProperties = new Properties();
-        jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        jpaProperties.setProperty("hibernate.hbm2ddl.import_files", "import.sql");
-        factory.setJpaProperties(jpaProperties);
 
         factory.afterPropertiesSet();
 
