@@ -29,4 +29,8 @@ public class MusicaService {
     public void adicionarTempo(Integer valor) {
         musicaRepository.procAdicionaTempo(valor);
     }
+
+    public void subtrairTempo(Integer valor) {
+        musicaRepository.procSubtraiTempo(valor);
+    }
 }

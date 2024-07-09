@@ -8,4 +8,7 @@ public interface MusicaRepository extends JpaRepository<Musica, Long> {
 
     @Procedure("proc_adiciona_tempo")
     void procAdicionaTempo(Integer valor);
+
+    @Procedure("proc_subtrai_tempo")
+    void procSubtraiTempo(Integer valor);
 }
