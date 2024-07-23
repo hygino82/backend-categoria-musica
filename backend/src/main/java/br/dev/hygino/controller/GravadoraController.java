@@ -22,36 +22,36 @@ import jakarta.validation.Valid;
 @RequestMapping("api/v1/gravadora")
 public class GravadoraController {
 
-    private final GravadoraService gravadoraService;
+    private final GravadoraService service;
 
-    public GravadoraController(GravadoraService gravadoraService) {
-        this.gravadoraService = gravadoraService;
+    public GravadoraController(GravadoraService service) {
+        this.service = service;
     }
 
     @PostMapping
     public ResponseEntity<ResponseGravadoraDTO> inserir(@RequestBody @Valid RequestGravadoraDTO dto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(gravadoraService.inserir(dto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.inserir(dto));
     }
 
     @GetMapping
     public ResponseEntity<List<ResponseGravadoraDTO>> buscarTodos() {
-        return ResponseEntity.status(HttpStatus.OK).body(gravadoraService.buscarTodos());
+        return ResponseEntity.status(HttpStatus.OK).body(service.buscarTodos());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ResponseGravadoraDTO> buscarPorId(@PathVariable long id) {
-        return ResponseEntity.status(HttpStatus.OK).body(gravadoraService.buscarPorId(id));
+        return ResponseEntity.status(HttpStatus.OK).body(service.buscarPorId(id));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ResponseGravadoraDTO> atualizarPorId(@PathVariable long id,
             @RequestBody @Valid RequestGravadoraDTO dto) {
-        return ResponseEntity.status(HttpStatus.OK).body(gravadoraService.atualizarPorId(id, dto));
+        return ResponseEntity.status(HttpStatus.OK).body(service.atualizarPorId(id, dto));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removerPorId(@PathVariable long id) {
-        gravadoraService.remover(id);
+        service.remover(id);
         return ResponseEntity.noContent().build();
     }
 }
