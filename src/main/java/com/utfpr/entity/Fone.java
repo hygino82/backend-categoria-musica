@@ -34,9 +34,8 @@ public class Fone {
                 '}';
     }
 
-    public Fone(String numero, char tipo, Pessoa pessoa) {
+    public Fone(String numero, char tipo) {
         this.numero = numero;
         this.tipo = tipo;
-        this.pessoa = pessoa;
     }
 }

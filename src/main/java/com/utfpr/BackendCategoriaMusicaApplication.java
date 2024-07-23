@@ -1,6 +1,7 @@
 package com.utfpr;
 
 import com.utfpr.entity.Categoria;
+import com.utfpr.entity.Fone;
 import com.utfpr.entity.Pessoa;
 import com.utfpr.service.CategoriaService;
 import com.utfpr.service.FoneService;
@@ -71,14 +72,14 @@ public class BackendCategoriaMusicaApplication {
             log.info("=======Listagem de todas as pessoas");
             for (var pessoa : pessoaService.listarTodasPessoas()) {
                 log.info(pessoa.toString());
-            }
+            }*/
 
             log.info("");
             log.info("");
             log.info("=======Listagem de todas os telefones");
             for (var obj : foneService.listarTodosTelefones()) {
                 log.info(obj.toString());
-            }*/
+            }
 
 
             /*log.info("");
@@ -87,11 +88,24 @@ public class BackendCategoriaMusicaApplication {
             Pessoa p = new Pessoa("Godofredo");
             System.out.println(pessoaService.inserirPessoa(p));
             */
+            /*
             log.info("");
             log.info("");
             long id = 12L;
             log.info("=======Remover pessoa Pessoa com o id: " + id);
-            pessoaService.removerPessoa(id);
+            pessoaService.removerPessoa(id);*/
+
+            /*log.info("");
+            log.info("=======Inserir Pessoa com telefone");
+            Pessoa p = new Pessoa("Melania");
+            Fone f = new Fone("321486475", 'F');
+            System.out.println(foneService.inserirPessoaTelefone(p, f));*/
+
+            /*log.info("");
+            log.info("");
+            long id = 11L;
+            log.info("=======Remover telefone com o id: {}", id);
+            foneService.removerTelefone(id);*/
         };
     }
 }
