@@ -1,12 +1,9 @@
 package com.utfpr.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Table(name = "categoria")
@@ -20,4 +17,16 @@ public class Categoria {
 
     @Column(name = "desc_categoria", length = 50)
     private String descCategoria;
+
+    @OneToMany(mappedBy = "categoria",fetch = FetchType.EAGER)
+    private List<Musica> musicas;
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "id=" + id +
+                ", descCategoria='" + descCategoria + '\'' +
+                ", musicas=" + musicas +
+                '}';
+    }
 }

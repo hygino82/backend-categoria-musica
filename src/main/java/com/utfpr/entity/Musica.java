@@ -28,4 +28,14 @@ public class Musica {
 
     @Column(length = 100)
     private String titulo;
+
+    @Override
+    public String toString() {
+        return "Musica{" +
+                "id=" + id +
+                ", categoria=" + categoria.getDescCategoria() +
+                ", duracao=" + duracao +
+                ", titulo='" + titulo + '\'' +
+                '}';
+    }
 }

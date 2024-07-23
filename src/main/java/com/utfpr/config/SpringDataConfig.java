@@ -26,7 +26,7 @@ public class SpringDataConfig {
         HikariDataSource ds = new HikariDataSource();
         ds.setUsername("root");
         ds.setPassword("senha");
-        ds.setJdbcUrl("jdbc:h2:mem:teste");
+        ds.setJdbcUrl("jdbc:h2:mem:testdb");
         ds.setDriverClassName("org.h2.Driver");
 
         return ds;
@@ -48,8 +48,8 @@ public class SpringDataConfig {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(false);//mudado para false no maria
-        vendorAdapter.setShowSql(false);
+        vendorAdapter.setGenerateDdl(false);//mudado para false no maria h2 true
+        vendorAdapter.setShowSql(true);
 
         factory.setDataSource(dataSourceMariaDB());
         factory.setJpaVendorAdapter(vendorAdapter);
