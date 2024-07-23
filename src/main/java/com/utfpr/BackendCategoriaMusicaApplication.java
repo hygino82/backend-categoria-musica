@@ -1,12 +1,7 @@
 package com.utfpr;
 
-import com.utfpr.entity.Categoria;
-import com.utfpr.entity.Fone;
-import com.utfpr.entity.Pessoa;
-import com.utfpr.service.CategoriaService;
-import com.utfpr.service.FoneService;
-import com.utfpr.service.MusicaService;
-import com.utfpr.service.PessoaService;
+import com.utfpr.entity.*;
+import com.utfpr.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -23,7 +18,7 @@ public class BackendCategoriaMusicaApplication {
     }
 
     @Bean
-    CommandLineRunner demo(CategoriaService categoriaService, MusicaService musicaService, PessoaService pessoaService, FoneService foneService) {
+    CommandLineRunner demo(CategoriaService categoriaService, MusicaService musicaService, PessoaService pessoaService, FoneService foneService, GravacaoService gravacaoService) {
         return (arg) -> {
 
 			/*log.info("");
@@ -74,12 +69,12 @@ public class BackendCategoriaMusicaApplication {
                 log.info(pessoa.toString());
             }*/
 
-            log.info("");
+            /*log.info("");
             log.info("");
             log.info("=======Listagem de todas os telefones");
             for (var obj : foneService.listarTodosTelefones()) {
                 log.info(obj.toString());
-            }
+            }*/
 
 
             /*log.info("");
@@ -106,6 +101,14 @@ public class BackendCategoriaMusicaApplication {
             long id = 11L;
             log.info("=======Remover telefone com o id: {}", id);
             foneService.removerTelefone(id);*/
+
+            log.info("");
+            log.info("=======Inserir gravacao");
+            Categoria categoria = new Categoria("Gaucha");
+            Musica musica = new Musica("Luz do meu rancho", 180);
+            Cantor cantor = new Cantor("Porca Veia", "Brasil");
+            Gravadora gravadora = new Gravadora("ACIT", "Brasil");
+            System.out.println(gravacaoService.novaGravacao(categoria, musica, cantor, gravadora));
         };
     }
 }

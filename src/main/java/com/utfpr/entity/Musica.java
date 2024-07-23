@@ -38,4 +38,9 @@ public class Musica {
                 ", titulo='" + titulo + '\'' +
                 '}';
     }
+
+    public Musica(String titulo, Integer duracao) {
+        this.titulo = titulo;
+        this.duracao = duracao;
+    }
 }

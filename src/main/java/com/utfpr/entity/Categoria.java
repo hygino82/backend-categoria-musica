@@ -29,4 +29,8 @@ public class Categoria {
                 ", musicas=" + musicas +
                 '}';
     }
+
+    public Categoria(String descCategoria) {
+        this.descCategoria = descCategoria;
+    }
 }
