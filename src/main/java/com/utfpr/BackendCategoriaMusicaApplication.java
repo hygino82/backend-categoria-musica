@@ -1,8 +1,11 @@
 package com.utfpr;
 
 import com.utfpr.entity.Categoria;
+import com.utfpr.entity.Pessoa;
 import com.utfpr.service.CategoriaService;
+import com.utfpr.service.FoneService;
 import com.utfpr.service.MusicaService;
+import com.utfpr.service.PessoaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -19,7 +22,7 @@ public class BackendCategoriaMusicaApplication {
     }
 
     @Bean
-    CommandLineRunner demo(CategoriaService categoriaService, MusicaService musicaService) {
+    CommandLineRunner demo(CategoriaService categoriaService, MusicaService musicaService, PessoaService pessoaService, FoneService foneService) {
         return (arg) -> {
 
 			/*log.info("");
@@ -29,12 +32,12 @@ public class BackendCategoriaMusicaApplication {
 				log.info(m.toString());
 			}*/
 
-            log.info("");
+            /*log.info("");
             log.info("");
             log.info("=======Listagem de todas as categorias");
             for (Categoria c : categoriaService.listarTodasCategorias()) {
                 log.info(c.toString());
-            }
+            }*/
 
 
 			/*log.info("");
@@ -62,6 +65,33 @@ public class BackendCategoriaMusicaApplication {
 			for (MusicaDTO m : musicaService.listarTodasMusicas()) {
 				log.info(m.toString());
 			}*/
+
+          /*  log.info("");
+            log.info("");
+            log.info("=======Listagem de todas as pessoas");
+            for (var pessoa : pessoaService.listarTodasPessoas()) {
+                log.info(pessoa.toString());
+            }
+
+            log.info("");
+            log.info("");
+            log.info("=======Listagem de todas os telefones");
+            for (var obj : foneService.listarTodosTelefones()) {
+                log.info(obj.toString());
+            }*/
+
+
+            /*log.info("");
+            log.info("");
+            log.info("=======Inserir Pessoa");
+            Pessoa p = new Pessoa("Godofredo");
+            System.out.println(pessoaService.inserirPessoa(p));
+            */
+            log.info("");
+            log.info("");
+            long id = 12L;
+            log.info("=======Remover pessoa Pessoa com o id: " + id);
+            pessoaService.removerPessoa(id);
         };
     }
 }

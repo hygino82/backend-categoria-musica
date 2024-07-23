@@ -2,10 +2,12 @@ package com.utfpr.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "fone")
 @Data
+@NoArgsConstructor
 public class Fone {
 
     @Id
@@ -30,5 +32,11 @@ public class Fone {
                 ", tipo=" + tipo +
                 ", pessoa=" + pessoa.getNome() +
                 '}';
+    }
+
+    public Fone(String numero, char tipo, Pessoa pessoa) {
+        this.numero = numero;
+        this.tipo = tipo;
+        this.pessoa = pessoa;
     }
 }

@@ -2,10 +2,9 @@ package com.utfpr.service;
 
 import java.util.List;
 
-import com.utfpr.MusicaDTO;
+import com.utfpr.entity.Musica;
 import org.springframework.stereotype.Service;
 
-import com.utfpr.entity.Musica;
 import com.utfpr.repository.MusicaRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -17,13 +16,8 @@ public class MusicaService {
     private final MusicaRepository musicaRepository;
 
     //@Transactional(readOnly = true)
-    public List<MusicaDTO> listarTodasMusicas() {
-
-        return musicaRepository
-                .findAll()
-                .stream()
-                .map(MusicaDTO::new)
-                .toList();
+    public List<Musica> listarTodasMusicas() {
+        return musicaRepository.findAll();
     }
 
     public void adicionarTempo(Integer valor) {

@@ -2,12 +2,14 @@ package com.utfpr.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "pessoa")
 @Data
+@NoArgsConstructor
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +21,8 @@ public class Pessoa {
 
     @OneToMany(mappedBy = "pessoa", fetch = FetchType.EAGER)
     private List<Fone> telefones;
+
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
 }
