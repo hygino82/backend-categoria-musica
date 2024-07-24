@@ -1,0 +1,19 @@
+meta {
+  name: Atualizar por Id
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:8080/api/v1/musica/4
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "categoriaId": 5,
+    "titulo": "Perigosa e linda",
+    "duracao": 215
+  }
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Inserir
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/api/v1/musica
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "categoriaId": 5,
+    "titulo": "Fundo da grota",
+    "duracao": 185
+  }
+}

@@ -13,45 +13,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.dev.hygino.dto.RequestCategoriaDTO;
-import br.dev.hygino.dto.ResponseCategoriaDTO;
-import br.dev.hygino.service.CategoriaService;
+import br.dev.hygino.dto.RequestMusicaDTO;
+import br.dev.hygino.dto.ResponseMusicaDTO;
+import br.dev.hygino.service.MusicaService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("api/v1/categoria")
-public class CategoriaController {
+@RequestMapping("api/v1/musica")
+public class MusicaController {
 
-    private final CategoriaService service;
+    private final MusicaService service;
 
-    public CategoriaController(CategoriaService service) {
+    public MusicaController(MusicaService service) {
         this.service = service;
     }
 
     @PostMapping
-    public ResponseEntity<ResponseCategoriaDTO> inserir(@RequestBody @Valid RequestCategoriaDTO dto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.inserir(dto));
+    public ResponseEntity<ResponseMusicaDTO> inserir(@RequestBody @Valid RequestMusicaDTO dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.inserirMusica(dto));
     }
 
     @GetMapping
-    ResponseEntity<List<ResponseCategoriaDTO>> buscarTodasAsCategorias() {
-        return ResponseEntity.status(HttpStatus.OK).body(service.buscarTodasAsCategorias());
+    public ResponseEntity<List<ResponseMusicaDTO>> buscarTodos() {
+        return ResponseEntity.status(HttpStatus.OK).body(service.buscarTodasMusicas());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseCategoriaDTO> buscarPorId(@PathVariable long id) {
+    public ResponseEntity<ResponseMusicaDTO> buscarPorId(@PathVariable long id) {
         return ResponseEntity.status(HttpStatus.OK).body(service.buscarPorId(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ResponseCategoriaDTO> atualizarPorId(@PathVariable long id,
-            @RequestBody @Valid RequestCategoriaDTO dto) {
+    public ResponseEntity<ResponseMusicaDTO> atualizarPorId(@PathVariable long id,
+            @RequestBody @Valid RequestMusicaDTO dto) {
         return ResponseEntity.status(HttpStatus.OK).body(service.atualizarPorId(id, dto));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removerPorId(@PathVariable long id) {
-        service.removerPorId(id);
+        service.remover(id);
         return ResponseEntity.noContent().build();
     }
 }
