@@ -2,12 +2,14 @@ package com.utfpr.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "categoria")
 @Data
+@NoArgsConstructor
 public class Categoria {
 
     @Id

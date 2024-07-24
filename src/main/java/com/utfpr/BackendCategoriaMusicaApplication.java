@@ -102,13 +102,26 @@ public class BackendCategoriaMusicaApplication {
             log.info("=======Remover telefone com o id: {}", id);
             foneService.removerTelefone(id);*/
 
-            log.info("");
+            /*log.info("");
             log.info("=======Inserir gravacao");
             Categoria categoria = new Categoria("Gaucha");
             Musica musica = new Musica("Luz do meu rancho", 180);
             Cantor cantor = new Cantor("Porca Veia", "Brasil");
             Gravadora gravadora = new Gravadora("ACIT", "Brasil");
-            System.out.println(gravacaoService.novaGravacao(categoria, musica, cantor, gravadora));
+            System.out.println(gravacaoService.novaGravacao(categoria, musica, cantor, gravadora));*/
+
+            log.info("");
+            log.info("");
+            log.info("=======Listagem de todas as gravações");
+            for (var obj : gravacaoService.buscarTodasGravacoes()) {
+                log.info(obj.toString());
+            }
+
+            log.info("");
+            log.info("");
+            log.info("=======Listagem gravação por Id");
+            final var gravacao = gravacaoService.buscarGravacaoPorId(1L);
+            log.info(gravacao.toString());
         };
     }
 }
