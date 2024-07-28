@@ -1,5 +1,8 @@
 package br.dev.hygino.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +19,13 @@ public class Gravadora {
 
     @Column(length = 50, name = "pais")
     private String pais;
+
+    @OneToMany(mappedBy = "gravadora")
+    private List<Gravacao> gravacoes = new ArrayList<>();
+
+    public List<Gravacao> getGravacoes() {
+        return gravacoes;
+    }
 
     public Gravadora() {
     }

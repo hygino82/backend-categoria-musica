@@ -1,6 +1,15 @@
 package br.dev.hygino.entity;
 
-import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "cantor")
@@ -16,6 +25,13 @@ public class Cantor {
 
     @Column(length = 50, name = "pais")
     private String pais;
+
+    @OneToMany(mappedBy = "cantor")
+    private List<Gravacao> gravacoes = new ArrayList<>();
+
+    public List<Gravacao> getGravacoes() {
+        return gravacoes;
+    }
 
     public Cantor() {
     }

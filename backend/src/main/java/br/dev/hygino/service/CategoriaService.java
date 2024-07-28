@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.dev.hygino.dto.RequestCategoriaDTO;
 import br.dev.hygino.dto.ResponseCategoriaDTO;
 import br.dev.hygino.entity.Categoria;
-import br.dev.hygino.reporisory.CategoriaRepository;
+import br.dev.hygino.repository.CategoriaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 

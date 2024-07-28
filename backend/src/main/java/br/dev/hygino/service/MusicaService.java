@@ -10,8 +10,8 @@ import br.dev.hygino.dto.RequestMusicaDTO;
 import br.dev.hygino.dto.ResponseMusicaDTO;
 import br.dev.hygino.entity.Categoria;
 import br.dev.hygino.entity.Musica;
-import br.dev.hygino.reporisory.CategoriaRepository;
-import br.dev.hygino.reporisory.MusicaRepository;
+import br.dev.hygino.repository.CategoriaRepository;
+import br.dev.hygino.repository.MusicaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 

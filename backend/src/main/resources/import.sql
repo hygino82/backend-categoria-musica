@@ -3,6 +3,7 @@ INSERT INTO gravadora ( nome_gravadora, pais) VALUES ( 'Som livre', 'Brasil');
 INSERT INTO gravadora ( nome_gravadora, pais) VALUES ( 'EMI', 'Estados Unidos');
 INSERT INTO gravadora ( nome_gravadora, pais) VALUES ( 'Globo', 'Brasil');
 INSERT INTO gravadora ( nome_gravadora, pais) VALUES ( 'Trama', 'Brasil');
+INSERT INTO gravadora ( nome_gravadora, pais) VALUES ( 'ACIT', 'Brasil');
 
 INSERT INTO cantor ( nome_cantor, pais) VALUES ( 'Marisa Monte', 'Brasil');
 INSERT INTO cantor ( nome_cantor, pais) VALUES ( 'Coldplay', 'Inglaterra');
@@ -15,6 +16,7 @@ INSERT INTO cantor ( nome_cantor, pais) VALUES ( 'Legiao Urbana', 'Brasil');
 INSERT INTO cantor ( nome_cantor, pais) VALUES ( 'Cazuza', 'Brasil');
 INSERT INTO cantor ( nome_cantor, pais) VALUES ( 'Tom Jobim', 'Brasil');
 INSERT INTO cantor ( nome_cantor, pais) VALUES ( 'Frank Sinatra', 'Estados Unidos');
+INSERT INTO cantor ( nome_cantor, pais) VALUES ( 'Porca Véia', 'Brasil');
 
 INSERT INTO categoria (desc_categoria) VALUES ( 'MPB');
 INSERT INTO categoria (desc_categoria) VALUES ( 'Rock');
@@ -24,6 +26,7 @@ INSERT INTO categoria (desc_categoria) VALUES ( 'Jazz');
 INSERT INTO categoria (desc_categoria) VALUES ( 'Pop rock');
 INSERT INTO categoria (desc_categoria) VALUES ( 'Eletronic');
 INSERT INTO categoria (desc_categoria) VALUES ( 'Pop');
+INSERT INTO categoria (desc_categoria) VALUES ( 'Gaucha');
 
 INSERT INTO musica (cod_categoria, duracao, titulo) VALUES ( 1, 240, 'Amor I love you');
 INSERT INTO musica (cod_categoria, duracao, titulo) VALUES ( 1, 300, 'Nao e facil');
@@ -50,3 +53,4 @@ INSERT INTO musica (cod_categoria, duracao, titulo) VALUES ( 2, 511, 'With or wi
 INSERT INTO musica (cod_categoria, duracao, titulo) VALUES ( 2, 300, 'Beautiful day');
 INSERT INTO musica (cod_categoria, duracao, titulo) VALUES ( 2, 458, 'Bullet The Blue Sky');
 INSERT INTO musica (cod_categoria, duracao, titulo) VALUES ( 1, 300, 'Sua');
+INSERT INTO musica (cod_categoria, duracao, titulo) VALUES ( 9, 255, 'Luz do meu rancho');

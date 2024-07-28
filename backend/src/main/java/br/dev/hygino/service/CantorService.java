@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.dev.hygino.dto.RequestCantorDTO;
 import br.dev.hygino.dto.ResponseCantorDTO;
 import br.dev.hygino.entity.Cantor;
-import br.dev.hygino.reporisory.CantorRepository;
+import br.dev.hygino.repository.CantorRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 

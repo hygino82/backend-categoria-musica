@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.dev.hygino.dto.RequestGravadoraDTO;
 import br.dev.hygino.dto.ResponseGravadoraDTO;
 import br.dev.hygino.entity.Gravadora;
-import br.dev.hygino.reporisory.GravadoraRepository;
+import br.dev.hygino.repository.GravadoraRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
