@@ -2,6 +2,8 @@ package br.dev.hygino.service;
 
 import java.time.LocalDate;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,4 +63,8 @@ public class GravacaoService {
                 gravacao.setMusica(musica);
         }
 
+        @Transactional(readOnly = true)
+        public Page<ResponseGravacaoDTO> buscarGravacoes(Pageable pageable) {
+                return this.gravacaoRepository.findAll(pageable).map(ResponseGravacaoDTO::new);
+        }
 }

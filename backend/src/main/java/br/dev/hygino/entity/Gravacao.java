@@ -17,19 +17,19 @@ public class Gravacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cod_categoria", nullable = false)
+    @Column(name = "cod_gravacao", nullable = false)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cantor_id")
+    @JoinColumn(name = "cod_cantor")
     private Cantor cantor;
 
     @ManyToOne
-    @JoinColumn(name = "gravadora_id")
+    @JoinColumn(name = "cod_gravadora")
     private Gravadora gravadora;
 
     @ManyToOne
-    @JoinColumn(name = "musica_id")
+    @JoinColumn(name = "cod_musica")
     private Musica musica;
     
     private LocalDate dataGravacao;

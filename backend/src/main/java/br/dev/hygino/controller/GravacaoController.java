@@ -8,7 +8,10 @@ import br.dev.hygino.dto.ResponseGravacaoDTO;
 import br.dev.hygino.service.GravacaoService;
 import jakarta.validation.Valid;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -27,4 +30,8 @@ public class GravacaoController {
         return ResponseEntity.status(201).body(this.service.inserirGravacao(dto));
     }
 
+    @GetMapping
+    public ResponseEntity<Page<ResponseGravacaoDTO>> buscarGravacoes(Pageable pageable) {
+        return ResponseEntity.status(200).body(this.service.buscarGravacoes(pageable));
+    }
 }
