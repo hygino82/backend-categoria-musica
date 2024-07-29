@@ -21,17 +21,17 @@ public class Gravacao {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cod_cantor")
+    @JoinColumn(name = "cod_cantor", nullable = false)
     private Cantor cantor;
 
     @ManyToOne
-    @JoinColumn(name = "cod_gravadora")
+    @JoinColumn(name = "cod_gravadora", nullable = false)
     private Gravadora gravadora;
 
     @ManyToOne
-    @JoinColumn(name = "cod_musica")
+    @JoinColumn(name = "cod_musica", nullable = false)
     private Musica musica;
-    
+
     private LocalDate dataGravacao;
 
     public Gravacao() {

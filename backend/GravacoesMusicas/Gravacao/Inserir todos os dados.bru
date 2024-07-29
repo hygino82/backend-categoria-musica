@@ -1,0 +1,29 @@
+meta {
+  name: Inserir todos os dados
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:8080/api/v1/gravacao/v2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "cantor": {
+      "nome": "Baitaca",
+      "pais": "Brasil"
+    },
+    "musica": {
+      "categoriaId": 5,
+      "titulo": "Fundo da grota",
+      "duracao": 185
+    },
+    "gravadora": {
+      "nome": "Rio Grande Amado",
+      "pais": "Brasil"
+    }
+  }
+}
