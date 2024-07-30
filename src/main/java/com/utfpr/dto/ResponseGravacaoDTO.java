@@ -11,6 +11,7 @@ public record ResponseGravacaoDTO(
         String cantor,
         String musica,
         String gravadora,
+        String categoria,
         LocalDate dataGravacao) {
     public ResponseGravacaoDTO(Gravacao entity) {
         this(
@@ -18,6 +19,7 @@ public record ResponseGravacaoDTO(
                 entity.getCantor().getNome(),
                 entity.getMusica().getTitulo(),
                 entity.getGravadora().getNome(),
+                entity.getMusica().getCategoria().getDescCategoria(),
                 entity.getDataGravacao());
     }
 }
