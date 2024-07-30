@@ -49,7 +49,7 @@ public class SpringDataConfig {
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(false);//mudado para false no maria h2 true
-        vendorAdapter.setShowSql(true);
+        vendorAdapter.setShowSql(false);
 
         factory.setDataSource(dataSourceMariaDB());
         factory.setJpaVendorAdapter(vendorAdapter);

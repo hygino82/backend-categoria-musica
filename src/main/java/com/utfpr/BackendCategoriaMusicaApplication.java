@@ -117,11 +117,11 @@ public class BackendCategoriaMusicaApplication {
                 log.info(obj.toString());
             }
 
-            log.info("");
+            /*log.info("");
             log.info("");
             log.info("=======Listagem gravação por Id");
             final var gravacao = gravacaoService.buscarGravacaoPorId(1L);
-            log.info(gravacao.toString());
+            log.info(gravacao.toString());*/
         };
     }
 }

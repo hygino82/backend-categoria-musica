@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,8 +21,8 @@ public class Categoria {
     @Column(name = "desc_categoria", length = 50)
     private String descCategoria;
 
-    @OneToMany(mappedBy = "categoria",fetch = FetchType.EAGER)
-    private List<Musica> musicas;
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
+    private List<Musica> musicas = new ArrayList<>();
 
     @Override
     public String toString() {
