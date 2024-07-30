@@ -110,12 +110,12 @@ public class BackendCategoriaMusicaApplication {
             Gravadora gravadora = new Gravadora("ACIT", "Brasil");
             System.out.println(gravacaoService.novaGravacao(categoria, musica, cantor, gravadora));*/
 
-            log.info("");
+            /*log.info("");
             log.info("");
             log.info("=======Listagem de todas as gravações");
             for (var obj : gravacaoService.buscarTodasGravacoes()) {
                 log.info(obj.toString());
-            }
+            }*/
 
             /*log.info("");
             log.info("");
