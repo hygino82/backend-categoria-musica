@@ -32,6 +32,13 @@ public class Gravacao {
     @Column(name = "data_gravacao", nullable = false)
     private LocalDate dataGravacao;
 
+    public Gravacao(Cantor cantor, Musica musica, Gravadora gravadora) {
+        this.cantor = cantor;
+        this.musica = musica;
+        this.gravadora = gravadora;
+        dataGravacao = LocalDate.now();
+    }
+
     @Override
     public String toString() {
         return "Gravacao{" +
