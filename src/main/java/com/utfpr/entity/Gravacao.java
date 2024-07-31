@@ -17,19 +17,19 @@ public class Gravacao {
     @Column(name = "cod_gravacao", nullable = false)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "cod_gravadora")
+    @ManyToOne
+    @JoinColumn(name = "cod_gravadora", nullable = false)
     private Gravadora gravadora;
 
     @OneToOne
-    @JoinColumn(name = "cod_cantor")
+    @JoinColumn(name = "cod_cantor", nullable = false)
     private Cantor cantor;
 
     @OneToOne
-    @JoinColumn(name = "cod_musica")
+    @JoinColumn(name = "cod_musica", nullable = false)
     private Musica musica;
 
-    @Column(name = "data_gravacao", nullable = false)
+    @Column(name = "data_gravacao")
     private LocalDate dataGravacao;
 
     public Gravacao(Cantor cantor, Musica musica, Gravadora gravadora) {

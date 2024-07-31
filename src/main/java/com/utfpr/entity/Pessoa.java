@@ -21,8 +21,4 @@ public class Pessoa {
 
     @OneToMany(mappedBy = "pessoa", fetch = FetchType.EAGER)
     private List<Fone> telefones;
-
-    public Pessoa(String nome) {
-        this.nome = nome;
-    }
 }

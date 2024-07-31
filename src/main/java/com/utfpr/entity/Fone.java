@@ -18,6 +18,7 @@ public class Fone {
     @Column(length = 80)
     private String numero;
 
+    @Column(length = 1)
     private char tipo;
 
     @ManyToOne
@@ -32,10 +33,5 @@ public class Fone {
                 ", tipo=" + tipo +
                 ", pessoa=" + pessoa.getNome() +
                 '}';
-    }
-
-    public Fone(String numero, char tipo) {
-        this.numero = numero;
-        this.tipo = tipo;
     }
 }
