@@ -11,7 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import jakarta.validation.Valid;
 
 @Service
@@ -24,8 +23,8 @@ public class GravacaoService {
     private final CategoriaRepository categoriaRepository;
 
     public GravacaoService(GravacaoRepository gravacaoRepository, GravadoraRepository gravadoraRepository,
-                           CantorRepository cantorRepository, MusicaRepository musicaRepository,
-                           CategoriaRepository categoriaRepository) {
+            CantorRepository cantorRepository, MusicaRepository musicaRepository,
+            CategoriaRepository categoriaRepository) {
         this.gravacaoRepository = gravacaoRepository;
         this.gravadoraRepository = gravadoraRepository;
         this.cantorRepository = cantorRepository;
@@ -86,7 +85,7 @@ public class GravacaoService {
             var gravadora = new Gravadora(dto.gravadora().nome(), dto.gravadora().pais());
             gravadora = gravadoraRepository.save(gravadora);
             var gravacao = new Gravacao(cantor, musica, gravadora);
-
+            gravacao.setDataGravacao(dto.dataGravacao());
             return new ResponseGravacaoDTO(this.gravacaoRepository.save(gravacao));
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
