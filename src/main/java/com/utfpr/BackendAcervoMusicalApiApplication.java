@@ -1,6 +1,5 @@
 package com.utfpr;
 
-import com.utfpr.entity.*;
 import com.utfpr.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,11 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class BackendCategoriaMusicaApplication {
-    private static final Logger log = LoggerFactory.getLogger(BackendCategoriaMusicaApplication.class);
+public class BackendAcervoMusicalApiApplication {
+    private static final Logger log = LoggerFactory.getLogger(BackendAcervoMusicalApiApplication.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(BackendCategoriaMusicaApplication.class, args);
+        SpringApplication.run(BackendAcervoMusicalApiApplication.class, args);
     }
 
     @Bean

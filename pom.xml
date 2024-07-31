@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.utfpr</groupId>
-	<artifactId>backend-categoria-musica</artifactId>
+	<artifactId>backend-acervo-musical-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backend-categoria-musica</name>
-	<description>Projeto exemplo disciplina Banco de Dados usando spring initialzr</description>
+	<name>backend-acervo-musical-api</name>
+	<description>API de backend de acervo musical</description>
 	<url/>
 	<licenses>
 		<license/>
