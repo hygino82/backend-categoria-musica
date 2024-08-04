@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.utfpr.dto.*;
 import com.utfpr.service.MusicaService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +23,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("api/v1/musica")
+@Tag(name = "Música")
 public class MusicaController {
 
     private final MusicaService service;

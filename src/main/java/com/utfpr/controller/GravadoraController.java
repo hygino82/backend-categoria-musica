@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.utfpr.dto.*;
 import com.utfpr.service.GravadoraService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +23,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("api/v1/gravadora")
+@Tag(name = "Gravadora")
 public class GravadoraController {
 
     private final GravadoraService service;

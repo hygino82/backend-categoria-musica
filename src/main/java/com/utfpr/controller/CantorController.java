@@ -4,15 +4,18 @@ import java.util.List;
 
 import com.utfpr.dto.*;
 import com.utfpr.service.CantorService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("api/v1/cantor")
+@Tag(name = "Cantor")
 public class CantorController {
 
     private final CantorService service;
@@ -38,7 +41,7 @@ public class CantorController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ResponseCantorDTO> atualizarPorId(@PathVariable long id,
-                                                            @RequestBody @Valid RequestCantorDTO dto) {
+            @RequestBody @Valid RequestCantorDTO dto) {
         return ResponseEntity.status(HttpStatus.OK).body(service.atualizarPorId(id, dto));
     }
 

@@ -1,7 +1,6 @@
 package com.utfpr.controller;
 import java.util.List;
 
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,13 +12,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.utfpr.dto.*;
-
+import com.utfpr.dto.RequestCategoriaDTO;
+import com.utfpr.dto.ResponseCategoriaDTO;
 import com.utfpr.service.CategoriaService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 
 
 @RestController
 @RequestMapping("api/v1/categoria")
+@Tag(name = "Categoria")
 public class CategoriaController {
 
     private final CategoriaService service;
