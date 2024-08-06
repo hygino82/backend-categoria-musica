@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.utfpr.entity.Gravacao;
 import com.utfpr.entity.Gravacao;
 import com.utfpr.service.GravacaoService;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
@@ -50,6 +50,7 @@ public class GravacaoControllerV2 {
     @PutMapping("/{id}")
     public ResponseEntity<Gravacao> update(@PathVariable(value = "id") Long id, @RequestBody Gravacao gravacaoUpdated) {
         Optional<Gravacao> gravacaoOld = this.service.encontrar(id);
+        log.warn("Tente put endpoint");
         log.warn("Gravacao: {}", gravacaoUpdated);
         if (gravacaoOld.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -1,5 +1,7 @@
 package com.utfpr.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,8 +15,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "musica")
-@Data
-@NoArgsConstructor
 public class Musica {
 
     @Id
@@ -35,7 +35,7 @@ public class Musica {
     public String toString() {
         return "Musica{" +
                 "id=" + id +
-                ", categoria=" + categoria.getDescCategoria() +
+                ", categoria=" + categoria+
                 ", duracao=" + duracao +
                 ", titulo='" + titulo + '\'' +
                 '}';
@@ -44,5 +44,40 @@ public class Musica {
     public Musica(String titulo, Integer duracao) {
         this.titulo = titulo;
         this.duracao = duracao;
+    }
+
+    public Musica() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Integer getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(Integer duracao) {
+        this.duracao = duracao;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 }

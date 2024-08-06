@@ -1,9 +1,7 @@
 package com.utfpr.service;
 
 import com.utfpr.entity.Pessoa;
-import com.utfpr.entity.Pessoa;
 import com.utfpr.repository.PessoaRepository;
-import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.springframework.data.jpa.repository.Modifying;
@@ -14,10 +12,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class PessoaService {
 
     private final PessoaRepository pessoaRepository;
+
+    public PessoaService(PessoaRepository pessoaRepository) {
+        this.pessoaRepository = pessoaRepository;
+    }
 
     @Transactional(readOnly = true)
     public List<Pessoa> listarTodasPessoas() {

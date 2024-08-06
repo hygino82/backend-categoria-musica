@@ -1,6 +1,7 @@
 package com.utfpr.service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,7 +64,7 @@ public class GravacaoService {
     }
 
     private void copyProperties(Musica musica, Cantor cantor, Gravadora gravadora, Gravacao gravacao) {
-        gravacao.setDataGravacao(LocalDate.now());
+        gravacao.setDataGravacao(LocalDateTime.now());
         gravacao.setCantor(cantor);
         gravacao.setGravadora(gravadora);
         gravacao.setMusica(musica);
@@ -144,7 +145,6 @@ public class GravacaoService {
 
     public Gravacao salvar(Gravacao gravacao) {
         try {
-            Musica musica=musicaRepository.findById(3L);
             return this.gravacaoRepository.save(gravacao);
         } catch (Exception ex) {
             return null;

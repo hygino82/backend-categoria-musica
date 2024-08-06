@@ -1,7 +1,7 @@
 package com.utfpr.service;
 
-import com.utfpr.dto.*;
-import com.utfpr.entity.Cantor;
+import com.utfpr.dto.RequestCategoriaDTO;
+import com.utfpr.dto.ResponseCategoriaDTO;
 import com.utfpr.entity.Categoria;
 import com.utfpr.repository.CategoriaRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -72,11 +72,6 @@ public class CategoriaService {
     @Transactional(readOnly = true)
     public List<Categoria> getAll() {
         return this.categoriaRepository.findAll();
-    }
-
-    @Transactional(readOnly = true)
-    public Optional<Categoria> encontrar(Long id) {
-        return this.categoriaRepository.findById(id);
     }
 
     @Transactional(readOnly = true)

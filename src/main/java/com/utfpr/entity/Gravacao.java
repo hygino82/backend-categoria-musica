@@ -1,17 +1,12 @@
 package com.utfpr.entity;
 
-import java.time.LocalDateTime;
-
+import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "gravacao")
-@Data
-@NoArgsConstructor
 public class Gravacao {
 
     @Id
@@ -23,11 +18,11 @@ public class Gravacao {
     @JoinColumn(name = "cod_gravadora", nullable = false)
     private Gravadora gravadora;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "cod_cantor", nullable = false)
     private Cantor cantor;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "cod_musica", nullable = false)
     private Musica musica;
 
@@ -42,21 +37,57 @@ public class Gravacao {
         dataGravacao = LocalDateTime.now();
     }
 
+    public Gravacao() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Gravadora getGravadora() {
+        return gravadora;
+    }
+
+    public void setGravadora(Gravadora gravadora) {
+        this.gravadora = gravadora;
+    }
+
+    public Cantor getCantor() {
+        return cantor;
+    }
+
+    public void setCantor(Cantor cantor) {
+        this.cantor = cantor;
+    }
+
+    public Musica getMusica() {
+        return musica;
+    }
+
+    public void setMusica(Musica musica) {
+        this.musica = musica;
+    }
+
+    public LocalDateTime getDataGravacao() {
+        return dataGravacao;
+    }
+
+    public void setDataGravacao(LocalDateTime dataGravacao) {
+        this.dataGravacao = dataGravacao;
+    }
+
     @Override
     public String toString() {
         return "Gravacao{" +
                 "id=" + id +
                 ", gravadora=" + gravadora.getNome() +
                 ", cantor=" + cantor.getNome() +
-                ", musica=" + musica +
+                ", musica=" + musica.getTitulo() +
                 ", dataGravacao=" + dataGravacao +
                 '}';
-    }
-
-    public Gravacao(Gravadora gravadora, Cantor cantor, Musica musica, LocalDateTime dataGravacao) {
-        this.gravadora = gravadora;
-        this.cantor = cantor;
-        this.musica = musica;
-        this.dataGravacao = dataGravacao;
     }
 }

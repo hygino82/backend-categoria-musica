@@ -1,7 +1,6 @@
 package com.utfpr.service;
 
 import com.utfpr.entity.Fone;
-import com.utfpr.entity.Fone;
 import com.utfpr.entity.Pessoa;
 import com.utfpr.repository.FoneRepository;
 import com.utfpr.repository.PessoaRepository;
@@ -16,22 +15,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class FoneService {
 
     private final FoneRepository foneRepository;
     private final PessoaRepository pessoaRepository;
 
+    public FoneService(FoneRepository foneRepository, PessoaRepository pessoaRepository) {
+        this.foneRepository = foneRepository;
+        this.pessoaRepository = pessoaRepository;
+    }
+
     @Transactional(readOnly = true)
     public List<Fone> listarTodosTelefones() {
         return foneRepository.findAll();
-    }
-
-    @Transactional
-    public Fone inserirPessoaTelefone(Pessoa pessoa, Fone fone) {
-        pessoa = pessoaRepository.save(pessoa);
-        fone.setPessoa(pessoa);
-        return foneRepository.save(fone);
     }
 
     @Transactional(readOnly = false)

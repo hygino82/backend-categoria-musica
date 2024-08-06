@@ -2,14 +2,14 @@ package com.utfpr.dto;
 
 import com.utfpr.entity.Gravacao;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record GravacaoDTO(
-        long id,
+        Long id,
         String gravadora,
         String cantor,
         String musica,
-        LocalDate data
+        LocalDateTime data
 ) {
     public GravacaoDTO(Gravacao entity) {
         this(

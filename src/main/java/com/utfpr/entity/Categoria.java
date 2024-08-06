@@ -1,18 +1,13 @@
 package com.utfpr.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "categoria")
-@Data
-@NoArgsConstructor
 public class Categoria {
 
     @Id
@@ -36,7 +31,34 @@ public class Categoria {
                 '}';
     }
 
+    public Categoria() {
+    }
+
     public Categoria(String descCategoria) {
         this.descCategoria = descCategoria;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescCategoria() {
+        return descCategoria;
+    }
+
+    public void setDescCategoria(String descCategoria) {
+        this.descCategoria = descCategoria;
+    }
+
+    public List<Musica> getMusicas() {
+        return musicas;
+    }
+
+    public void setMusicas(List<Musica> musicas) {
+        this.musicas = musicas;
     }
 }

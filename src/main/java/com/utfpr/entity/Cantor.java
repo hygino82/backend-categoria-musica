@@ -1,13 +1,9 @@
 package com.utfpr.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "cantor")
-@Data
-@NoArgsConstructor
 public class Cantor {
 
     @Id
@@ -23,6 +19,33 @@ public class Cantor {
 
     public Cantor(String nome, String pais) {
         this.nome = nome;
+        this.pais = pais;
+    }
+
+    public Cantor() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
         this.pais = pais;
     }
 }

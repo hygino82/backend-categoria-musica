@@ -1,13 +1,9 @@
 package com.utfpr.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "fone")
-@Data
-@NoArgsConstructor
 public class Fone {
 
     @Id
@@ -24,6 +20,41 @@ public class Fone {
     @ManyToOne
     @JoinColumn(name = "cod_pessoa", nullable = false)
     private Pessoa pessoa;
+
+    public Fone() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public char getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(char tipo) {
+        this.tipo = tipo;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
 
     @Override
     public String toString() {
