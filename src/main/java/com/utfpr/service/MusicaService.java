@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MusicaService {
@@ -71,5 +72,15 @@ public class MusicaService {
         } catch (EntityNotFoundException ex) {
             throw new IllegalArgumentException("Não existe musica com o id: " + id);
         }
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Musica> encontrar(Long id) {
+        return this.musicaRepository.findById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Musica> getAll() {
+        return this.musicaRepository.findAll();
     }
 }

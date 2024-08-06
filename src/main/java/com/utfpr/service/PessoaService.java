@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -32,5 +33,10 @@ public class PessoaService {
     @Cascade(CascadeType.REMOVE)
     public void removerPessoa(Long id) {
         pessoaRepository.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Pessoa> encontrar(Long id) {
+        return this.pessoaRepository.findById(id);
     }
 }

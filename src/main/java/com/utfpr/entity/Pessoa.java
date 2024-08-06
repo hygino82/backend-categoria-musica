@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "pessoa")
 @Data
@@ -19,6 +21,7 @@ public class Pessoa {
     @Column(length = 70, name = "nome_pessoa")
     private String nome;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "pessoa", fetch = FetchType.EAGER)
     private List<Fone> telefones;
 }

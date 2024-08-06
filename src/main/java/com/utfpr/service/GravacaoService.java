@@ -1,16 +1,28 @@
 package com.utfpr.service;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
-import com.utfpr.dto.*;
-import com.utfpr.entity.*;
-import com.utfpr.repository.*;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.utfpr.dto.CadastroNovaGravacao;
+import com.utfpr.dto.RequestGravacaoDTO;
+import com.utfpr.dto.ResponseGravacaoDTO;
+import com.utfpr.entity.Cantor;
+import com.utfpr.entity.Gravacao;
+import com.utfpr.entity.Gravadora;
+import com.utfpr.entity.Musica;
+import com.utfpr.repository.CantorRepository;
+import com.utfpr.repository.CategoriaRepository;
+import com.utfpr.repository.GravacaoRepository;
+import com.utfpr.repository.GravadoraRepository;
+import com.utfpr.repository.MusicaRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 @Service
@@ -118,5 +130,15 @@ public class GravacaoService {
 
     public void removerGravacaoPorId(long id) {
         this.gravacaoRepository.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Gravacao> getAll() {
+        return this.gravacaoRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Gravacao> encontrar(Long id) {
+        return this.gravacaoRepository.findById(id);
     }
 }

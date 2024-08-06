@@ -1,14 +1,16 @@
 package com.utfpr.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import com.utfpr.dto.*;
-import com.utfpr.entity.Cantor;
-import com.utfpr.repository.CantorRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.utfpr.dto.RequestCantorDTO;
+import com.utfpr.dto.ResponseCantorDTO;
+import com.utfpr.entity.Cantor;
+import com.utfpr.repository.CantorRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
@@ -68,5 +70,15 @@ public class CantorService {
         } catch (DataIntegrityViolationException ex) {
             throw new IllegalArgumentException("Não pode remover cantor associado a uma gravação");
         }
+    }
+
+    @Transactional(readOnly = true)
+    public List<Cantor> getAll() {
+        return this.cantorRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Cantor> encontrar(Long id) {
+        return this.cantorRepository.findById(id);
     }
 }

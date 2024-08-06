@@ -16,6 +16,7 @@ import com.utfpr.dto.RequestCategoriaDTO;
 import com.utfpr.dto.ResponseCategoriaDTO;
 import com.utfpr.service.CategoriaService;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
@@ -23,6 +24,7 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("api/v1/categoria")
 @Tag(name = "Categoria")
+@Hidden
 public class CategoriaController {
 
     private final CategoriaService service;

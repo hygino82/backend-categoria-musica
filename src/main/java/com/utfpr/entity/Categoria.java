@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "categoria")
 @Data
@@ -22,6 +24,7 @@ public class Categoria {
     private String descCategoria;
 
     @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Musica> musicas = new ArrayList<>();
 
     @Override

@@ -1,6 +1,7 @@
 package com.utfpr.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.utfpr.dto.*;
 import com.utfpr.entity.Gravadora;
@@ -8,7 +9,6 @@ import com.utfpr.repository.GravadoraRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
@@ -68,5 +68,15 @@ public class GravadoraService {
         } catch (DataIntegrityViolationException ex) {
             throw new IllegalArgumentException("Não pode remover música associada a uma gravação");
         }
+    }
+
+    @Transactional(readOnly = true)
+    public List<Gravadora> getAll() {
+        return this.gravadoraRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Gravadora> encontrar(Long id) {
+        return this.gravadoraRepository.findById(id);
     }
 }

@@ -1,6 +1,5 @@
 package com.utfpr.service;
 
-
 import com.utfpr.dto.*;
 import com.utfpr.entity.Categoria;
 import com.utfpr.repository.CategoriaRepository;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoriaService {
@@ -66,5 +66,15 @@ public class CategoriaService {
         } catch (DataIntegrityViolationException ex) {
             new IllegalArgumentException("Não é possível excluir categoria com musica associada!");
         }
+    }
+
+    @Transactional(readOnly = true)
+    public List<Categoria> getAll() {
+        return this.categoriaRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Categoria> encontrar(Long id) {
+        return this.categoriaRepository.findById(id);
     }
 }

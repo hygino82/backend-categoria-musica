@@ -3,6 +3,7 @@ package com.utfpr.controller;
 import com.utfpr.dto.*;
 import com.utfpr.service.GravacaoService;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import org.springframework.data.domain.Page;
@@ -19,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 @RestController
 @RequestMapping("api/v1/gravacao")
 @Tag(name = "Gravação")
+@Hidden
 public class GravacaoController {
 
     private final GravacaoService service;

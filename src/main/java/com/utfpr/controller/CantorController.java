@@ -5,6 +5,7 @@ import java.util.List;
 import com.utfpr.dto.*;
 import com.utfpr.service.CantorService;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("api/v1/cantor")
 @Tag(name = "Cantor")
+@Hidden
 public class CantorController {
 
     private final CantorService service;
