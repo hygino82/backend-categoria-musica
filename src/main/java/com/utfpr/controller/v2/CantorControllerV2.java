@@ -65,4 +65,17 @@ public class CantorControllerV2 {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Cantor> remove(@PathVariable(value = "id") Long id) {
+        Optional<Cantor> res = this.service.encontrar(id);
+
+        if(res.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        else{
+            this.service.remover(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+    }
 }
