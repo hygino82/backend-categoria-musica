@@ -3,6 +3,7 @@ package com.utfpr.controller.v2;
 import java.util.List;
 import java.util.Optional;
 
+import com.utfpr.entity.Gravadora;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,15 @@ public class MusicaControllerV2 {
             } else {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<Musica> create(@RequestBody Musica musica) {
+        if (this.service.salvar(musica) != null) {
+            return new ResponseEntity<>(musica, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }

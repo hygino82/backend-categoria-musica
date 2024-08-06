@@ -1,8 +1,9 @@
 package com.utfpr.controller.v2;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.utfpr.BackendAcervoMusicalApiApplication;
+import com.utfpr.entity.Pessoa;
+import com.utfpr.service.PessoaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.utfpr.BackendAcervoMusicalApiApplication;
-import com.utfpr.entity.Pessoa;
-import com.utfpr.entity.Pessoa;
-import com.utfpr.service.PessoaService;
-
-import io.swagger.v3.oas.annotations.tags.Tag;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v2/pessoa")
@@ -58,6 +55,16 @@ public class PessoaControllerV2 {
             } else {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<Pessoa> create(@RequestBody Pessoa pessoa) {
+        log.info("Inserindo pessoa");
+        if (this.service.salvar(pessoa) != null) {
+            return new ResponseEntity<>(pessoa, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }

@@ -1,0 +1,22 @@
+meta {
+  name: Inserir
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{HOST}}/fone
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "numero": "51000-84751",
+    "tipo": "R",
+    "pessoa": {
+      "id": 1,
+      "nome": "Ana"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 package com.utfpr.controller.v2;
 
+import com.utfpr.entity.Fone;
 import com.utfpr.entity.Gravacao;
 import com.utfpr.service.GravacaoService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -57,6 +58,15 @@ public class GravacaoControllerV2 {
             } else {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<Gravacao> create(@RequestBody Gravacao gravacao) {
+        if (this.service.salvar(gravacao) != null) {
+            return new ResponseEntity<>(gravacao, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }

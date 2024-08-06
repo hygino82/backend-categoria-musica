@@ -3,6 +3,7 @@ package com.utfpr.controller.v2;
 import java.util.List;
 import java.util.Optional;
 
+import com.utfpr.entity.Categoria;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,15 @@ public class FoneControllerV2 {
             } else {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<Fone> create(@RequestBody Fone fone) {
+        if (this.service.salvar(fone) != null) {
+            return new ResponseEntity<>(fone, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }

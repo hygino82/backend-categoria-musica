@@ -1,8 +1,8 @@
 package com.utfpr.controller.v2;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.utfpr.entity.Categoria;
+import com.utfpr.service.CategoriaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.utfpr.BackendAcervoMusicalApiApplication;
-import com.utfpr.entity.Categoria;
-import com.utfpr.entity.Categoria;
-import com.utfpr.service.CategoriaService;
-
-import io.swagger.v3.oas.annotations.tags.Tag;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v2/categoria")
@@ -46,7 +42,7 @@ public class CategoriaControllerV2 {
 
     @PutMapping("/{id}")
     public ResponseEntity<Categoria> update(@PathVariable(value = "id") Long id,
-            @RequestBody Categoria categoriaUpdated) {
+                                            @RequestBody Categoria categoriaUpdated) {
         Optional<Categoria> categoriaOld = this.service.encontrar(id);
         if (categoriaOld.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -58,6 +54,15 @@ public class CategoriaControllerV2 {
             } else {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<Categoria> create(@RequestBody Categoria categoria) {
+        if (this.service.salvar(categoria) != null) {
+            return new ResponseEntity<>(categoria, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }
