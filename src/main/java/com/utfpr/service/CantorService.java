@@ -81,4 +81,13 @@ public class CantorService {
     public Optional<Cantor> encontrar(Long id) {
         return this.cantorRepository.findById(id);
     }
+
+    @Transactional
+    public Cantor salvar(Cantor cantor) {
+        try {
+            return this.cantorRepository.saveAndFlush(cantor);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
 }
