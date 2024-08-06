@@ -1,5 +1,6 @@
 package com.utfpr.controller.v2;
 
+import com.utfpr.entity.Cantor;
 import com.utfpr.entity.Fone;
 import com.utfpr.entity.Gravacao;
 import com.utfpr.service.GravacaoService;
@@ -67,6 +68,19 @@ public class GravacaoControllerV2 {
             return new ResponseEntity<>(gravacao, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Gravacao> remove(@PathVariable(value = "id") Long id) {
+        Optional<Gravacao> res = this.service.encontrar(id);
+
+        if(res.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        else{
+            this.service.removerGravacaoPorId(id);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
     }
 }

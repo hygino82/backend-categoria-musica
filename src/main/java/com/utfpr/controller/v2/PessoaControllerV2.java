@@ -67,4 +67,17 @@ public class PessoaControllerV2 {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Pessoa> remove(@PathVariable(value = "id") Long id) {
+        Optional<Pessoa> res = this.service.encontrar(id);
+
+        if(res.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        else{
+            this.service.removerPessoa(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.utfpr.controller.v2;
 
+import com.utfpr.entity.Cantor;
 import com.utfpr.entity.Categoria;
 import com.utfpr.service.CategoriaService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -63,6 +64,19 @@ public class CategoriaControllerV2 {
             return new ResponseEntity<>(categoria, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Categoria> remove(@PathVariable(value = "id") Long id) {
+        Optional<Categoria> res = this.service.encontrar(id);
+
+        if(res.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        else{
+            this.service.removerPorId(id);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
     }
 }

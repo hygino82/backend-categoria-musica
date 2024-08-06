@@ -3,6 +3,7 @@ package com.utfpr.controller.v2;
 import java.util.List;
 import java.util.Optional;
 
+import com.utfpr.entity.Cantor;
 import com.utfpr.entity.Categoria;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,6 +67,19 @@ public class GravadoraControllerV2 {
             return new ResponseEntity<>(gravadora, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Gravadora> remove(@PathVariable(value = "id") Long id) {
+        Optional<Gravadora> res = this.service.encontrar(id);
+
+        if(res.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        else{
+            this.service.remover(id);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
     }
 }

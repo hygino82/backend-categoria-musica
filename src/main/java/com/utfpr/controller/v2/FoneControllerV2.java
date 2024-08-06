@@ -68,4 +68,17 @@ public class FoneControllerV2 {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Fone> remove(@PathVariable(value = "id") Long id) {
+        Optional<Fone> res = this.service.encontrar(id);
+
+        if(res.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        else{
+            this.service.removerTelefone(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+    }
 }
