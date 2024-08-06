@@ -1,10 +1,12 @@
 package com.utfpr.entity;
 
+import java.time.LocalDateTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "gravacao")
@@ -30,13 +32,14 @@ public class Gravacao {
     private Musica musica;
 
     @Column(name = "data_gravacao")
-    private LocalDate dataGravacao;
+    @DateTimeFormat
+    private LocalDateTime dataGravacao;
 
     public Gravacao(Cantor cantor, Musica musica, Gravadora gravadora) {
         this.cantor = cantor;
         this.musica = musica;
         this.gravadora = gravadora;
-        dataGravacao = LocalDate.now();
+        dataGravacao = LocalDateTime.now();
     }
 
     @Override
@@ -50,7 +53,7 @@ public class Gravacao {
                 '}';
     }
 
-    public Gravacao(Gravadora gravadora, Cantor cantor, Musica musica, LocalDate dataGravacao) {
+    public Gravacao(Gravadora gravadora, Cantor cantor, Musica musica, LocalDateTime dataGravacao) {
         this.gravadora = gravadora;
         this.cantor = cantor;
         this.musica = musica;

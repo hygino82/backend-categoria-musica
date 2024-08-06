@@ -5,14 +5,33 @@ meta {
 }
 
 put {
-  url: {{HOST}}//gravacao/3
+  url: {{HOST}}/gravacao/1
   body: json
   auth: none
 }
 
 body:json {
-  {
-    "nome": "Mano Lima",
-    "pais": "Brasil"
-  }
+    {
+      "id": 1000,
+      "gravadora": {
+        "id": 1,
+        "nome": "Sony",
+        "pais": "Estados Unidos"
+      },
+      "cantor": {
+        "id": 1,
+        "nome": "Marisa Monte",
+        "pais": "Brasil"
+      },
+      "musica": {
+        "id": 1,
+        "categoria": {
+          "id": 1,
+          "descCategoria": "MPB"
+        },
+        "duracao": 240,
+        "titulo": "Amor I love you"
+      },
+      "dataGravacao": "2000-07-18T00:00:00"
+    }
 }

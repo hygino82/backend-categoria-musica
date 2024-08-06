@@ -5,15 +5,19 @@ meta {
 }
 
 put {
-  url: {{HOST}}/musica/28
+  url: {{HOST}}/musica/29
   body: json
   auth: none
 }
 
 body:json {
   {
-    "categoriaId": 5,
-    "titulo": "Perigosa e linda",
-    "duracao": 215
+    "id": 290,
+    "categoria": {
+      "id": 9,
+      "descCategoria": "Gaucha"
+    },
+    "duracao": 322,
+    "titulo": "É mentira desses louco"
   }
 }

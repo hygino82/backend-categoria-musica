@@ -1,0 +1,23 @@
+meta {
+  name: Atualizar
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{HOST}}/fone/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 1,
+    "numero": "555000-1111",
+    "tipo": "R",
+    "pessoa": {
+      "id": 1,
+      "nome": "Ana"
+    }
+  }
+}

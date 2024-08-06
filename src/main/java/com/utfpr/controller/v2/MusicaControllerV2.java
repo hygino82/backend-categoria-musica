@@ -8,9 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.utfpr.entity.Musica;
 import com.utfpr.entity.Musica;
 import com.utfpr.service.MusicaService;
 
@@ -40,5 +42,21 @@ public class MusicaControllerV2 {
 
         return musicaFound.map(musica -> new ResponseEntity<>(musica, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Musica> update(@PathVariable(value = "id") Long id, @RequestBody Musica musicaUpdated) {
+        Optional<Musica> musicaOld = this.service.encontrar(id);
+        if (musicaOld.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            musicaUpdatec.setId(id);
+            log.warn("Musica: {}", musicaUpdated);
+            if (this.service.salvar(musicaUpdated) != null) {
+                return new ResponseEntity<>(musicaUpdated, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
     }
 }

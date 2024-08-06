@@ -141,4 +141,13 @@ public class GravacaoService {
     public Optional<Gravacao> encontrar(Long id) {
         return this.gravacaoRepository.findById(id);
     }
+
+    public Gravacao salvar(Gravacao gravacao) {
+        try {
+            Musica musica=musicaRepository.findById(3L);
+            return this.gravacaoRepository.save(gravacao);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
 }

@@ -1,0 +1,17 @@
+meta {
+  name: Atualizar
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{HOST}}/pessoa/8
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "Roberta"
+  }
+}

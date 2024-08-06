@@ -1,6 +1,7 @@
 package com.utfpr.service;
 
 import com.utfpr.entity.Pessoa;
+import com.utfpr.entity.Pessoa;
 import com.utfpr.repository.PessoaRepository;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Cascade;
@@ -38,5 +39,13 @@ public class PessoaService {
     @Transactional(readOnly = true)
     public Optional<Pessoa> encontrar(Long id) {
         return this.pessoaRepository.findById(id);
+    }
+
+    public Pessoa salvar(Pessoa pessoa) {
+        try {
+            return this.pessoaRepository.save(pessoa);
+        } catch (Exception ex) {
+            return null;
+        }
     }
 }

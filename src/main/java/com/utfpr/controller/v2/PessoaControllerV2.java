@@ -3,14 +3,15 @@ package com.utfpr.controller.v2;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import com.utfpr.BackendAcervoMusicalApiApplication;
+import com.utfpr.entity.Pessoa;
 import com.utfpr.entity.Pessoa;
 import com.utfpr.service.PessoaService;
 
@@ -20,6 +21,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("api/v2/pessoa")
 @Tag(name = "Pessoa V2")
 public class PessoaControllerV2 {
+    private static final Logger log = LoggerFactory.getLogger(BackendAcervoMusicalApiApplication.class);
 
     @Autowired
     private PessoaService service;
@@ -40,5 +42,22 @@ public class PessoaControllerV2 {
 
         return pessoaFound.map(pessoa -> new ResponseEntity<>(pessoa, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Pessoa> update(@PathVariable(value = "id") Long id, @RequestBody Pessoa pessoaUpdated) {
+        log.warn("Executando PUT Pessoa");
+        Optional<Pessoa> PessoaOld = this.service.encontrar(id);
+        if (PessoaOld.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            pessoaUpdated.setId(id);
+            log.warn("Pessoa: {}", pessoaUpdated);
+            if (this.service.salvar(pessoaUpdated) != null) {
+                return new ResponseEntity<>(pessoaUpdated, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
     }
 }

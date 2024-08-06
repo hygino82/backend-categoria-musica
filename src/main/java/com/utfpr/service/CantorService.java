@@ -82,7 +82,6 @@ public class CantorService {
         return this.cantorRepository.findById(id);
     }
 
-    @Transactional
     public Cantor salvar(Cantor cantor) {
         try {
             return this.cantorRepository.saveAndFlush(cantor);

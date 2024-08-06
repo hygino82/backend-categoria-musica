@@ -20,7 +20,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @Tag(name = "Cantor V2")
 public class CantorControllerV2 {
 
-    private static final Logger log = LoggerFactory.getLogger(BackendAcervoMusicalApiApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(CantorControllerV2.class);
 
     @Autowired
     private CantorService service;

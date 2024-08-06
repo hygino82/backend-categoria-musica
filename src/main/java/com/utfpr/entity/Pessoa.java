@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,5 +24,5 @@ public class Pessoa {
 
     @JsonIgnore
     @OneToMany(mappedBy = "pessoa", fetch = FetchType.EAGER)
-    private List<Fone> telefones;
+    private List<Fone> telefones = new ArrayList<>();
 }

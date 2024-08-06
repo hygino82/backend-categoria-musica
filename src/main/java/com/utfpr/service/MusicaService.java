@@ -83,4 +83,12 @@ public class MusicaService {
     public List<Musica> getAll() {
         return this.musicaRepository.findAll();
     }
+
+    public Musica salvar(Musica musica) {
+        try {
+            return this.musicaRepository.save(musica);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
 }

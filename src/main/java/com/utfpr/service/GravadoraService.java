@@ -79,4 +79,12 @@ public class GravadoraService {
     public Optional<Gravadora> encontrar(Long id) {
         return this.gravadoraRepository.findById(id);
     }
+
+    public Gravadora salvar(Gravadora gravadora) {
+        try {
+            return this.gravadoraRepository.save(gravadora);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
 }

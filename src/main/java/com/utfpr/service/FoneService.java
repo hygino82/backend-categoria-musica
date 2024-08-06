@@ -1,6 +1,7 @@
 package com.utfpr.service;
 
 import com.utfpr.entity.Fone;
+import com.utfpr.entity.Fone;
 import com.utfpr.entity.Pessoa;
 import com.utfpr.repository.FoneRepository;
 import com.utfpr.repository.PessoaRepository;
@@ -43,5 +44,13 @@ public class FoneService {
     @Transactional(readOnly = true)
     public Optional<Fone> encontrar(Long id) {
         return this.foneRepository.findById(id);
+    }
+
+    public Fone salvar(Fone fone) {
+        try {
+            return this.foneRepository.saveAndFlush(fone);
+        } catch (Exception ex) {
+            return null;
+        }
     }
 }
