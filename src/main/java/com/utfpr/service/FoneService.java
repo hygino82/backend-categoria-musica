@@ -1,31 +1,28 @@
 package com.utfpr.service;
 
-import com.utfpr.entity.Fone;
-import com.utfpr.entity.Pessoa;
-import com.utfpr.repository.FoneRepository;
-import com.utfpr.repository.PessoaRepository;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+import java.util.Optional;
+
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
+import com.utfpr.entity.Fone;
+import com.utfpr.repository.FoneRepository;
 
 @Service
 public class FoneService {
 
     private final FoneRepository foneRepository;
-    private final PessoaRepository pessoaRepository;
 
-    public FoneService(FoneRepository foneRepository, PessoaRepository pessoaRepository) {
-        this.foneRepository = foneRepository;
-        this.pessoaRepository = pessoaRepository;
-    }
+    public FoneService(FoneRepository foneRepository) {
+		super();
+		this.foneRepository = foneRepository;
+	}
 
-    @Transactional(readOnly = true)
+	@Transactional(readOnly = true)
     public List<Fone> listarTodosTelefones() {
         return foneRepository.findAll();
     }
@@ -44,7 +41,7 @@ public class FoneService {
 
     public Fone salvar(Fone fone) {
         try {
-            return this.foneRepository.saveAndFlush(fone);
+            return this.foneRepository.save(fone);
         } catch (Exception ex) {
             return null;
         }

@@ -5,32 +5,22 @@ meta {
 }
 
 put {
-  url: {{HOST}}/gravacao/1
+  url: {{HOST}}/gravacao/26
   body: json
   auth: none
 }
 
 body:json {
-    {
-      "gravadora": {
-        "id": 1,
-        "nome": "Sony",
-        "pais": "Estados Unidos"
-      },
-      "cantor": {
-        "id": 1,
-        "nome": "Marisa Monte",
-        "pais": "Brasil"
-      },
-      "musica": {
-        "id": 1,
-        "categoria": {
-          "id": 1,
-          "descCategoria": "MPB"
-        },
-        "duracao": 240,
-        "titulo": "Amor I love you"
-      },
-      "dataGravacao": "2012-05-18T10:14:17"
-    }
+  {
+    "gravadora": {
+      "id": 1
+    },
+    "cantor": {
+      "id": 1
+    },
+    "musica": {
+      "id": 1
+    },
+    "dataGravacao": "2012-05-18T10:14:17"
+  }
 }
