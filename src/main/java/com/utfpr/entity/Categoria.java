@@ -19,15 +19,15 @@ public class Categoria {
     private String descCategoria;
 
     @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
-    @JsonIgnore
+    //@JsonIgnore
     private List<Musica> musicas = new ArrayList<>();
 
     @Override
     public String toString() {
         return "Categoria{" +
                 "id=" + id +
-                ", descCategoria='" + descCategoria + '\'' +
-                ", musicas=" + musicas +
+                ", descCategoria='" + descCategoria +
+               // ", musicas=" + musicas +
                 '}';
     }
 

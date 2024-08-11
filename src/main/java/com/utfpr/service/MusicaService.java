@@ -91,4 +91,21 @@ public class MusicaService {
             return null;
         }
     }
+
+    @Transactional(readOnly = true)
+    public ResponseMusicaDTO buscarPorTitulo(String titulo) {
+        Musica entity = musicaRepository.buscarPorTitulo(titulo)
+                .orElseThrow(() -> new IllegalArgumentException("Não existe música com o titulo: " + titulo));
+        return new ResponseMusicaDTO(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Musica> findFirstByDuracaoDesc() {
+        return this.musicaRepository.findFirstByOrderByDuracaoDesc();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Musica> findByDuracaoGreaterThan(Integer duracao) {
+        return this.musicaRepository.buscarMusicasComDuracaoMaiorQue(duracao);
+    }
 }

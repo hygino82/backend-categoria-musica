@@ -1,0 +1,22 @@
+meta {
+  name: Buscar por titulo
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{HOST}}/musica/titulo?titulo=Gentileza
+  body: none
+  auth: none
+}
+
+query {
+  titulo: Gentileza
+}
+
+body:json {
+  {
+    "nome": "ACIT",
+    "pais": "Brasil"
+  }
+}
